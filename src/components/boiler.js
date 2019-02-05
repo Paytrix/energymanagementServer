@@ -4,58 +4,56 @@ export default class boiler extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          values: []
+          values: [],
+          isLoading: false
         }
     }
 
   render() {
     this.fetchData();
-    const { values } = this.state;
+    const { values, isLoading } = this.state;
     return (
     <div>
         <div className="BoxBoiler">
             <div id="BoilerTop"></div>
                 <div id="BoilerBody">
-                    <div className="sensorBoiler" id="sensorBoiler1"></div>
-                    <div className="sensorBoiler" id="sensorBoiler2"></div>
-                    <div className="sensorBoiler" id="sensorBoiler3"></div>
-                    <div className="sensorBoiler" id="sensorBoiler4"></div>
-                    <div className="sensorBoiler" id="sensorBoiler5"></div>
-                    <div className="sensorValueBoiler" id="sensorValueBoiler1">
-                        45°C
-                        {  
-                            // JSON.stringify(values.PuffertemperaturOben)
-                        }
+                    <div className="sensorBoiler" id="sensorBoiler1">
+                        <div className="sensorValueBoiler" id="sensorValueBoiler1">
+                            {  values.PuffertemperaturOben + "°C" }
+                        </div>
                     </div>
-                    <div className="sensorValueBoiler" id="sensorValueBoiler2">
-                        44°C
-                        {  
-                            // values["PuffertemperaturMitteOben"]
-                        }
+                    <div className="sensorBoiler" id="sensorBoiler2">
+                        <div className="sensorValueBoiler" id="sensorValueBoiler2">
+                            {  values.PuffertemperaturMitteOben + "°C" }
+                        </div>
                     </div>
-                    <div className="sensorValueBoiler" id="sensorValueBoiler3">
-                        43°C
-                        { 
-                           // values["PuffertemperaturMitte"]
-                        }
+                    <div className="sensorBoiler" id="sensorBoiler3">
+                        <div className="sensorValueBoiler" id="sensorValueBoiler3">
+                            {  values.PuffertemperaturMitte + "°C" }
+                        </div>
                     </div>
-                    <div className="sensorValueBoiler" id="sensorValueBoiler4">
-                        42°C
-                        {  
-                           // values["PuffertemperaturMitteUnten"]
-                        }
+                    <div className="sensorBoiler" id="sensorBoiler4">
+                        <div className="sensorValueBoiler" id="sensorValueBoiler4">
+                            {  values.PuffertemperaturMitteUnten + "°C" }
+                        </div>
                     </div>
-                    <div className="sensorValueBoiler" id="sensorValueBoiler5">
-                        41°C
-                        {
-                           // values["PuffertemperaturUnten"]
-                        }   
+                    <div className="sensorBoiler" id="sensorBoiler5">
+                        <div className="sensorValueBoiler" id="sensorValueBoiler5">
+                            {  values.PuffertemperaturUnten + "°C" }    
+                        </div>
                     </div>
                 </div>
                 <div id="BoilerBottom"></div>
         </div>
     </div>
     )
+  }
+
+  componentDidMount() {
+    this.setState({ 
+        values: [],
+        isLoading: true 
+    });
   }
 
   fetchData() {
@@ -67,7 +65,8 @@ export default class boiler extends Component {
       .then(
         (result) => {
           this.setState({
-            values: result.results
+            values: result.results,
+            isLoading: false
           });
         },
         (error) => {

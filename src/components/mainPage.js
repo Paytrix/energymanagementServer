@@ -10,7 +10,7 @@ export default class mainPage extends Component {
       pageSolar: PageSolar,
       pageBoiler: PageBoiler
     };
-    var ActiveComponent = components[this.props.page]; //this.props.activePage
+    var ActiveComponent = components[this.props.page];
     return (
       <div id="bodymainPage">
           <ActiveComponent/>

@@ -24,7 +24,7 @@ class App extends Component {
           <LeftPanel/>
           <MainPage page={page}/>
           {
-            console.log(values.PuffertemperaturOben)
+            //console.log(values.PuffertemperaturOben)
             /*
             values.map(item => (
               <p>{item.value}</p>
