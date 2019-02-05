@@ -1,0 +1,9 @@
+.App {
+  position: absolute;
+  text-align: center;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: -5;
+}

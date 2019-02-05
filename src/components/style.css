@@ -1,0 +1,257 @@
+p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: normal;
+}
+
+#topPanel {
+    z-index: +1;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    height: 120px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: relative;
+    background-color: rgb(0, 92, 230);
+  	border-color: rgb(0, 92, 230);
+    border-style: solid;
+}
+
+#topPanelLogo {
+    height: 100px;
+    width: auto;
+    position: absolute;
+    top: 1.5%;
+}
+
+#bodyHeaderTitle {
+    z-index: +1;
+    height: 126px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bodyleftHRPanel {
+    top: 118px;
+    height: 100%;
+    width: 75px;
+    position: absolute;
+}
+
+.leftPanelHR {
+    border-color: rgb(0, 71, 179);
+}
+
+.leftPanelHR + .leftPanelHR {
+    margin-top: 80px;
+}
+
+#bodyleftPanel {
+    z-index: -1;
+    height: 100%;
+	width: 75px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	background-color: rgb(0, 92, 230);
+  	border-color: rgb(0, 92, 230);
+}
+
+#bodyleftIconPanel {
+    top: 126px;
+    height: 100%;
+    width: 75px;
+    position: absolute;
+}
+
+.leftPanelIcon {
+    height: 60px;
+    width: 60px;
+    z-index: +1;
+    position: relative;
+    left: 3px;
+}
+
+.leftPanelIcon + .leftPanelIcon {
+    margin: 23% 0;
+}
+
+#leftPanelBoiler {
+    top: 5px;
+    zoom: 115%;
+    background: url("../pictures/Boiler.png") no-repeat;
+}
+
+#leftPanelBoiler:hover:after {
+    position: absolute;
+    content: "";
+    text-align: center;
+    height: 70px;
+    width: 400px;
+    left: 62px;
+    top: -5px;
+    background-color: rgb(0, 92, 230);
+}
+
+#leftPanelBoiler:hover {
+    background: url("../pictures/Boiler-red.png") no-repeat;
+}
+
+#leftPanelSolar {
+    zoom: 115%;
+    background: url("../pictures/solar-panel.png") no-repeat;
+}
+
+#leftPanelSolar:hover:after {
+    position: absolute;
+    content: "";
+    height: 70px;
+    width: 400px;
+    left: 62px;
+    top: -4px;
+    background-color: rgb(0, 92, 230);
+}
+
+#leftPanelSolar:hover {
+    background: url("../pictures/solar-panel-red.png") no-repeat;
+}
+
+#leftPanelPumpe {
+    zoom: 105%;
+    background: url("../pictures/pump.png") no-repeat;
+}
+
+#leftPanelPumpe:hover:after {
+    position: absolute;
+    content: "";
+    height: 77px;
+    width: 439px;
+    left: 68px;
+    top: -9px;
+    background-color: rgb(0, 92, 230);
+}
+
+#leftPanelPumpe:hover {
+    background: url("../pictures/pump-red.png") no-repeat;
+}
+
+#leftPanelHeizung {
+    zoom: 100%;
+    background: url("../pictures/heizung.png") no-repeat;
+}
+
+#leftPanelHeizung:hover:after {
+    position: absolute;
+    content: "";
+    height: 82px;
+    width: 460px;
+    left: 72px;
+    top: -8px;
+    background-color: rgb(0, 92, 230);
+}
+
+#leftPanelHeizung:hover {
+    background: url("../pictures/heizung-red.png") no-repeat;
+}
+
+/* MAIN PAGE */
+#bodymainPage {
+    position: absolute;
+    z-index: -2;
+    background-color: rgb(194, 194, 214);
+    top: 126px;
+    left: 75px;
+    width: 100%;
+    height: 100%;
+}
+/* MAIN PAGE */
+
+/* BOILER */
+.BoxBoiler {
+    width: 270px; /* 270*/
+    margin: auto;
+    height: 450px; /*450 */
+    zoom: 60%;
+}
+#BoilerBody {
+    position: relative;
+    background-image: linear-gradient(red, blue);
+    width: 100%;
+    height: 100%;
+}
+#BoilerTop {
+    margin: 0 auto;
+    z-index: -1;
+    height: 15%;
+    width: 100%;
+    background-color: red;
+    top: 0;
+    border-radius: 50% 50% 0 0;
+}
+#BoilerBottom {
+    margin: 0 auto;
+    z-index: -1;
+    height: 15%;
+    width: 100%;
+    background-color: blue;
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+.sensorBoiler {
+    position: relative;
+    width: 10%;
+    height: 5%;
+    border-radius: 100%;
+    left: 95%;
+}
+.sensorBoiler + .sensorBoiler {
+    margin: 30% 0;
+}
+#sensorBoiler1 {
+    top: 0%;
+    background-color: black;
+}
+#sensorBoiler2 {
+    background-color: black;
+}
+#sensorBoiler3 {
+    background-color: black;
+}
+#sensorBoiler4 {
+    background-color: black;
+}
+#sensorBoiler5 {
+    background-color: black;
+}   
+
+.sensorValueBoiler + .sensorValueBoiler {
+    margin: 63px 0;
+}
+.sensorValueBoiler {
+    position: relative;
+    top: -117%;
+    right: -70%;
+    font-size: 30px;
+}
+/* BOILER */
+
+/* BOILER PAGE */
+#bodypageBoiler {
+    z-index: -3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50px;
+    left: -450px;
+}
+/* BOILER PAGE */
