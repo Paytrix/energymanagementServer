@@ -21,7 +21,7 @@ class App extends Component {
       <div className="App">
           <HeaderLogo/>
           <HeaderTitle/>
-          <LeftPanel/>
+          <LeftPanel changepage={this.updatePage.bind(this)}/>
           <MainPage page={page}/>
           {
             //console.log(values.PuffertemperaturOben)
@@ -33,6 +33,12 @@ class App extends Component {
           }
       </div>
     );
+  }
+
+  updatePage (updatedPage) {
+    this.setState({
+      page: updatedPage
+    });
   }
 
   fetchData() {
