@@ -12,7 +12,7 @@ constructor (props){
     return (
       <div id="bodyleftPanel">
         <LeftHRPanel/>
-        <LeftIconPanel page={this.props.page}/>
+        <LeftIconPanel/>
       </div>
     )
   }

@@ -21,7 +21,7 @@ class App extends Component {
       <div className="App">
           <HeaderLogo/>
           <HeaderTitle/>
-          <LeftPanel page={this.setState({ page: this.props.page })}/>
+          <LeftPanel/>
           <MainPage page={page}/>
           {
             //console.log(values.PuffertemperaturOben)
