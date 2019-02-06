@@ -23,14 +23,6 @@ class App extends Component {
           <HeaderTitle/>
           <LeftPanel changepage={this.updatePage.bind(this)}/>
           <MainPage page={page}/>
-          {
-            //console.log(values.PuffertemperaturOben)
-            /*
-            values.map(item => (
-              <p>{item.value}</p>
-            ))
-            */
-          }
       </div>
     );
   }
