@@ -42,4 +42,59 @@ $sendTempPufferUnten = $mysqli->prepare("INSERT INTO tempPufferUnten (value, dat
 $dataTempPufferUnten = getModbusData(2,20008,2,"°C");
 $sendTempPufferUnten->bind_param('d',$dataTempPufferUnten);
 $sendTempPufferUnten->execute();
+
+$sendWaermepumpenzaehler = $mysqli->prepare("INSERT INTO Waermepumpenzaehler (value, date) VALUES (?,NOW())");
+$dataWaermepumpenzaehler = getModbusData(2,20010,2,"kW");
+$sendWaermepumpenzaehler->bind_param('d',$dataWaermepumpenzaehler);
+$sendWaermepumpenzaehler->execute();
+
+$sendKesselzaehler = $mysqli->prepare("INSERT INTO Kesselzaehler (value, date) VALUES (?,NOW())");
+$dataKesselzaehler = getModbusData(2,20012,2,"kW");
+$sendKesselzaehler->bind_param('d',$dataKesselzaehler);
+$sendKesselzaehler->execute();
+
+$sendSolarzaehler = $mysqli->prepare("INSERT INTO Solarzaehler (value, date) VALUES (?,NOW())");
+$dataSolarzaehler = getModbusData(2,20014,2,"kW");
+$sendSolarzaehler->bind_param('d',$dataSolarzaehler);
+$sendSolarzaehler->execute();
+
+$sendHauptruecklauftemperatur = $mysqli->prepare("INSERT INTO Hauptruecklauftemperatur (value, date) VALUES (?,NOW())");
+$dataHauptruecklauftemperatur = getModbusData(2,20016,2,"°C");
+$sendHauptruecklauftemperatur->bind_param('d',$dataHauptruecklauftemperatur);
+$sendHauptruecklauftemperatur->execute();
+
+$sendVorlauftemperaturHK = $mysqli->prepare("INSERT INTO VorlauftemperaturHK (value, date) VALUES (?,NOW())");
+$dataVorlauftemperaturHK = getModbusData(2,20018,2,"°C");
+$sendVorlauftemperaturHK->bind_param('d',$dataVorlauftemperaturHK);
+$sendVorlauftemperaturHK->execute();
+
+$sendRuecklauftemperaturHK = $mysqli->prepare("INSERT INTO RuecklauftemperaturHK (value, date) VALUES (?,NOW())");
+$dataRuecklauftemperaturHK = getModbusData(2,20020,2,"°C");
+$sendRuecklauftemperaturHK->bind_param('d',$dataRuecklauftemperaturHK);
+$sendRuecklauftemperaturHK->execute();
+
+$sendVorlauftemperaturHL = $mysqli->prepare("INSERT INTO VorlauftemperaturHL (value, date) VALUES (?,NOW())");
+$dataVorlauftemperaturHL = getModbusData(2,20022,2,"°C");
+$sendVorlauftemperaturHL->bind_param('d',$dataVorlauftemperaturHL);
+$sendVorlauftemperaturHL->execute();
+
+$sendRaumtemperatur = $mysqli->prepare("INSERT INTO Raumtemperatur (value, date) VALUES (?,NOW())");
+$dataRaumtemperatur = getModbusData(2,20024,2,"°C");
+$sendRaumtemperatur->bind_param('d',$dataRaumtemperatur);
+$sendRaumtemperatur->execute();
+
+$sendVorlauftemperaturSolar = $mysqli->prepare("INSERT INTO VorlauftemperaturSolar (value, date) VALUES (?,NOW())");
+$dataVorlauftemperaturSolar = getModbusData(2,20026,2,"°C");
+$sendVorlauftemperaturSolar->bind_param('d',$dataVorlauftemperaturSolar);
+$sendVorlauftemperaturSolar->execute();
+
+$sendRuecklauftemperaturSolar = $mysqli->prepare("INSERT INTO RuecklauftemperaturSolar (value, date) VALUES (?,NOW())");
+$dataRuecklauftemperaturSolar = getModbusData(2,20028,2,"°C");
+$sendRuecklauftemperaturSolar->bind_param('d',$dataRuecklauftemperaturSolar);
+$sendRuecklauftemperaturSolar->execute();
+
+$sendGesThermEnergie = $mysqli->prepare("INSERT INTO GesThermEnergie (value, date) VALUES (?,NOW())");
+$dataGesThermEnergie = getModbusData(2,20030,2);
+$sendGesThermEnergie->bind_param('d',$dataGesThermEnergie);
+$sendGesThermEnergie->execute();
 // ************************ PRIVA VALUES ************************
