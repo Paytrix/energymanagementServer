@@ -11,6 +11,7 @@ export default class boiler extends Component {
 
   render() {
     this.fetchData();
+    this.postData("2","30000","true");
     const { values, isLoading } = this.state;
     return (
     <div>
@@ -48,12 +49,17 @@ export default class boiler extends Component {
     </div>
     )
   }
-
-  componentDidMount() {
-    this.setState({ 
-        values: [],
-        isLoading: true 
-    });
+  
+  postData(slaveID, register, postdata) {
+    fetch('http://172.16.144.101:80/postModbus.php', {
+        method: 'POST',
+        crossDomain: true,
+        body: JSON.stringify({
+            slaveID: slaveID,
+            register: register,
+            data: postdata
+        })
+    })
   }
 
   fetchData() {
@@ -81,5 +87,13 @@ export default class boiler extends Component {
 
   componentWillMount() {
     this.fetchData();
+  }
+
+  componentDidMount() {
+    this.postData("2","30000","true");
+    this.setState({ 
+        values: [],
+        isLoading: true 
+    });
   }
 }
