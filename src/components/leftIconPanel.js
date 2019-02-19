@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 export default class leftIconPanel extends Component {
@@ -21,10 +22,22 @@ export default class leftIconPanel extends Component {
   render() {
     return (
       <div id="bodyleftIconPanel">
-        <div id="leftPanelBoiler" className="leftPanelIcon" onClick={this.changeToBoiler.bind(this)}></div>
-        <div id="leftPanelSolar" className="leftPanelIcon" onClick={this.changeToSolar.bind(this)}></div>
-        <div id="leftPanelPumpe" className="leftPanelIcon"></div>
-        <div id="leftPanelHeizung" className="leftPanelIcon"></div>
+        <div id="leftPanelBoiler" className="leftPanelIcon">
+          {//<NavLink to="/pageBoiler"></NavLink>
+          }
+        </div>
+        <div id="leftPanelSolar" className="leftPanelIcon">
+          {//<NavLink to="/pageSolar"></NavLink>
+          }
+        </div>
+        <div id="leftPanelPumpe" className="leftPanelIcon">
+          {//<NavLink to="/pagePumpe"></NavLink>
+          }
+        </div>
+        <div id="leftPanelHeizung" className="leftPanelIcon">
+          {//<NavLink to="/pagePumpe"></NavLink>
+          }
+        </div>
       </div>
     )
   }

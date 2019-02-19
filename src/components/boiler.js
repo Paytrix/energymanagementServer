@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
+import { RadialGauge } from '@progress/kendo-react-gauges';
 
 export default class boiler extends Component {
     constructor(props) {
         super(props);
         this.state = {
           values: [],
-          isLoading: false
+          isLoading: false,
+          gaugeValue: 0
         }
     }
 
   render() {
     this.fetchData();
-    this.postData("2","30000","true");
+    //this.postData("2","30000","true");
     const { values, isLoading } = this.state;
+    const radialOptions = {
+      pointer: {
+          value: this.state.gaugeValue
+      },
+      scale: {
+        labels: {
+          format: 'n2'
+        },
+        minorUnit: 1,
+        majorUnit: 5,
+        max: 25.2,
+        ranges: [
+            { from: 0, to: 10, color: '#0066ff' },
+            { from: 10, to: 20, color: '#990099' },
+            { from: 20, to: 25.2, color: '#ff0000' }
+        ]
+      }
+    };
     return (
     <div>
+        <RadialGauge {...radialOptions} />
         <div className="BoxBoiler">
             <div id="BoilerTop"></div>
                 <div id="BoilerBody">
@@ -51,13 +72,16 @@ export default class boiler extends Component {
   }
   
   postData(slaveID, register, postdata) {
-    fetch('http://172.16.144.101:80/postModbus.php', {
+    fetch("http://172.16.144.101/postModbus.php", {
         method: 'POST',
         crossDomain: true,
+        headers: {
+            'Accept': 'application/json'
+        },
         body: JSON.stringify({
-            slaveID: slaveID,
-            register: register,
-            data: postdata
+            slaveID,
+            register,
+            postdata
         })
     })
   }
@@ -72,15 +96,14 @@ export default class boiler extends Component {
         (result) => {
           this.setState({
             values: result.results,
+            gaugeValue: result.results.GesThermEnergie,
             isLoading: false
           });
         },
         (error) => {
-          /*
           this.setState({
             error
           });
-          */
         }
       )
   }
@@ -90,7 +113,7 @@ export default class boiler extends Component {
   }
 
   componentDidMount() {
-    this.postData("2","30000","true");
+    //this.postData("2","30000","true");
     this.setState({ 
         values: [],
         isLoading: true 

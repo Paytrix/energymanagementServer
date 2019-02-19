@@ -9,20 +9,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: [],
-      page: "pageBoiler"
+      values: []
     }
   }
 
   render() {
     this.fetchData();
-    const { values, page } = this.state;
+    const { values } = this.state;
     return (
       <div className="App">
           <HeaderLogo/>
           <HeaderTitle/>
-          <LeftPanel changepage={this.updatePage.bind(this)}/>
-          <MainPage page={page}/>
+          <LeftPanel/>
+          <MainPage/>
       </div>
     );
   }
