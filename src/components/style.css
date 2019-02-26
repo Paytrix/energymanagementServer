@@ -27,6 +27,10 @@ p {
     top: 1.5%;
 }
 
+#topPanelLogo a {
+    z-index: +4;
+}
+
 #bodyHeaderTitle {
     z-index: +1;
     height: 126px;
@@ -86,21 +90,18 @@ p {
     margin: 23% 0;
 }
 
+.leftPanelLinks {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    z-index: +3;
+    left: 3px;
+}
+
 #leftPanelBoiler {
     top: 5px;
     zoom: 115%;
     background: url("../pictures/Boiler.png") no-repeat;
-}
-
-#leftPanelBoiler:hover:after {
-    position: absolute;
-    content: "";
-    text-align: center;
-    height: 70px;
-    width: 400px;
-    left: 62px;
-    top: -5px;
-    background-color: rgb(0, 92, 230);
 }
 
 #leftPanelBoiler:hover {
@@ -112,16 +113,6 @@ p {
     background: url("../pictures/solar-panel.png") no-repeat;
 }
 
-#leftPanelSolar:hover:after {
-    position: absolute;
-    content: "";
-    height: 70px;
-    width: 400px;
-    left: 62px;
-    top: -4px;
-    background-color: rgb(0, 92, 230);
-}
-
 #leftPanelSolar:hover {
     background: url("../pictures/solar-panel-red.png") no-repeat;
 }
@@ -131,16 +122,6 @@ p {
     background: url("../pictures/pump.png") no-repeat;
 }
 
-#leftPanelPumpe:hover:after {
-    position: absolute;
-    content: "";
-    height: 77px;
-    width: 439px;
-    left: 68px;
-    top: -9px;
-    background-color: rgb(0, 92, 230);
-}
-
 #leftPanelPumpe:hover {
     background: url("../pictures/pump-red.png") no-repeat;
 }
@@ -148,16 +129,6 @@ p {
 #leftPanelHeizung {
     zoom: 100%;
     background: url("../pictures/heizung.png") no-repeat;
-}
-
-#leftPanelHeizung:hover:after {
-    position: absolute;
-    content: "";
-    height: 82px;
-    width: 460px;
-    left: 72px;
-    top: -8px;
-    background-color: rgb(0, 92, 230);
 }
 
 #leftPanelHeizung:hover {

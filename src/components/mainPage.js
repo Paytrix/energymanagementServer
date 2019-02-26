@@ -11,10 +11,10 @@ export default class mainPage extends Component {
           <BrowserRouter>
             <div>
               <Switch>
-                <Route path="/pagePv" component={PagePv} exact />
-                <Route path="/pageBoiler" component={PageBoiler} exact />
-                <Route path="/pageSolar" component={PageSolar} exact />
-                <Route patch="/" component={PageBoiler} exact />
+                <Route path="/pagePv" component={PagePv}/>
+                <Route path="/pageBoiler" component={PageBoiler}/>
+                <Route path="/pageSolar" component={PageSolar}/>
+                <Route path="/" component={PageBoiler} exact />
               </Switch>
             </div>
           </BrowserRouter>
