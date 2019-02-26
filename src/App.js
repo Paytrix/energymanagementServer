@@ -21,7 +21,7 @@ class App extends Component {
       <div className="App">
           <HeaderLogo/>
           <HeaderTitle/>
-          <Router><LeftPanel/></Router>
+          <LeftPanel/>
           <MainPage/>
       </div>
     );
