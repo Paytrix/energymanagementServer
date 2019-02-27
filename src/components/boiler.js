@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RadialGauge } from '@progress/kendo-react-gauges';
+import { RadialGauge, ArcGauge } from '@progress/kendo-react-gauges';
 
 export default class boiler extends Component {
     constructor(props) {
@@ -15,27 +15,31 @@ export default class boiler extends Component {
     this.fetchData();
     //this.postData("2","30000","true");
     const { values, isLoading } = this.state;
-    const radialOptions = {
-      pointer: {
-          value: this.state.gaugeValue
-      },
-      scale: {
-        labels: {
-          format: 'n2'
-        },
-        minorUnit: 1,
-        majorUnit: 5,
-        max: 25.2,
-        ranges: [
-            { from: 0, to: 10, color: '#0066ff' },
-            { from: 10, to: 20, color: '#990099' },
-            { from: 20, to: 25.2, color: '#ff0000' }
-        ]
-      }
+
+    const colors = [
+      { from: 0, to: 25, color: 'blue' },
+      { from: 25, to: 100, color: 'lime' }
+    ];
+
+    const arcOptions = {
+        value: this.state.gaugeValue.toFixed(1),
+        colors
     };
+
+    const arcCenterRenderer = (value, color) => {
+        return (<h3 style={{ color: color }}>{value}%</h3>);
+    };
+
     return (
     <div>
-        <RadialGauge {...radialOptions} />
+        <ArcGauge 
+          {...arcOptions}
+          arcCenterRender={arcCenterRenderer} 
+          style={{
+            top: '390px',
+            left: '-200px'
+          }}
+        />
         <div className="BoxBoiler">
             <div id="BoilerTop"></div>
                 <div id="BoilerBody">
@@ -96,7 +100,7 @@ export default class boiler extends Component {
         (result) => {
           this.setState({
             values: result.results,
-            gaugeValue: result.results.GesThermEnergie,
+            gaugeValue: result.results.GesThermEnergie / 25.14,
             isLoading: false
           });
         },
@@ -108,12 +112,9 @@ export default class boiler extends Component {
       )
   }
 
-  componentWillMount() {
-    this.fetchData();
-  }
-
   componentDidMount() {
     //this.postData("2","30000","true");
+    this.fetchData();
     this.setState({ 
         values: [],
         isLoading: true 

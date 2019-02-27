@@ -4,7 +4,6 @@ import HeaderLogo from './components/headerLogo';
 import HeaderTitle from './components/headerTitle';
 import LeftPanel from './components/leftPanel';
 import MainPage from './components/mainPage';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -25,12 +24,6 @@ class App extends Component {
           <MainPage/>
       </div>
     );
-  }
-
-  updatePage (updatedPage) {
-    this.setState({
-      page: updatedPage
-    });
   }
 
   fetchData() {
