@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PagePv from './pagePv';
 import PageSolar from './pageSolar';
 import PageBoiler from './pageBoiler';

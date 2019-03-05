@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RadialGauge, ArcGauge } from '@progress/kendo-react-gauges';
+import { ArcGauge } from '@progress/kendo-react-gauges';
 
 export default class boiler extends Component {
     constructor(props) {
@@ -13,6 +13,7 @@ export default class boiler extends Component {
 
   render() {
     this.fetchData();
+    this.postData(2,30000,"true");
     //this.postData("2","30000","true");
     const { values, isLoading } = this.state;
 
@@ -79,9 +80,6 @@ export default class boiler extends Component {
     fetch("http://172.16.144.101/postModbus.php", {
         method: 'POST',
         crossDomain: true,
-        headers: {
-            'Accept': 'application/json'
-        },
         body: JSON.stringify({
             slaveID,
             register,
@@ -105,16 +103,15 @@ export default class boiler extends Component {
           });
         },
         (error) => {
-          this.setState({
-            error
-          });
+          // this.setState({
+          //   error
+          // });
         }
       )
   }
 
   componentDidMount() {
     //this.postData("2","30000","true");
-    this.fetchData();
     this.setState({ 
         values: [],
         isLoading: true 
