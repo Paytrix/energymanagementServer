@@ -18,9 +18,9 @@ export default class mainPage extends Component {
       <div id="bodymainPage">
           <BrowserRouter>
             <div>
-              <div>
-                { values.Raumtemperatur + "°C" }
-              </div>
+              <span id="mainPageRaumTemp">
+                Raumtemperatur: { values.Raumtemperatur + "°C" }
+              </span>
               <Switch>
                 <Route path="/pagePv" component={PagePv}/>
                 <Route path="/pageBoiler" component={PageBoiler}/>

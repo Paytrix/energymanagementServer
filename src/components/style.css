@@ -142,6 +142,13 @@ p {
     width: 100%;
     height: 100%;
 }
+
+#mainPageRaumTemp {
+    position: absolute;
+    height: 20px;
+    right: 90px;
+    font-size: 20px;
+}
 /* MAIN PAGE */
 
 /* BOILER */
@@ -224,7 +231,7 @@ p {
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 50px;
-    left: -450px;
+    top: 0px;
+    left: -100px;
 }
 /* BOILER PAGE */
