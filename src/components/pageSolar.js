@@ -52,11 +52,7 @@ export default class pageSolar extends Component {
           });
         },
         (error) => {
-          /*
-          this.setState({
-            error
-          });
-          */
+          
         }
       )
   }
