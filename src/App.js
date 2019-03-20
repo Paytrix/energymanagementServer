@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+//import '@progress/kendo-theme-default/dist/all.css';
 import HeaderLogo from './components/headerLogo';
 import HeaderTitle from './components/headerTitle';
 import LeftPanel from './components/leftPanel';
