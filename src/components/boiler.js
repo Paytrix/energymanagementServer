@@ -13,7 +13,7 @@ export default class boiler extends Component {
 
   render() {
     this.fetchData();
-    this.postData("2","30000","true");
+    //this.postData("2","30000","true");
     const { values, isLoading } = this.state;
 
     const colors = [

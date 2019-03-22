@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import logo from '../pictures/HTBLuVA_Salzburg_Logo_mit_Bild.png';
+
 
 export default class headerLogo extends Component {
   render() {
@@ -12,13 +12,6 @@ export default class headerLogo extends Component {
             <a href="#">Impressum</a>
         </nav>
         */}
-        <div id="topPanelLogo">
-            <a href="http://www.htl-salzburg.ac.at">
-            <picture>
-                <img src={logo} alt="HTL_logo"/>
-            </picture>
-            </a>
-        </div>
       </div>
     )
   }
