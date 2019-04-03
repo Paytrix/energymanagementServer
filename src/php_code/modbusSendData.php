@@ -6,7 +6,10 @@ function sendModbusData ($slave_id, $register, $data) {
     $modbus = new ModbusMasterTcp("172.16.144.102");
 
     try {
-        $modbus->writeSingleCoil($slave_id,$register,$data);
+        if($register == 30016)
+            echo ("Function missing");
+        else
+            $modbus->writeSingleCoil($slave_id,$register,$data);
     }
     catch (Exception $e) {
         echo $modbus;

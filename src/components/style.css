@@ -233,12 +233,17 @@ p {
     height: 100%;
     width: 100%;
     top: 0px;
-    left: -100px;
+    left: -580px;
+}
+#boilerChartBody {
+    position: relative;
+    left: 1300px;
+    top: -300px;
 }
 /* BOILER PAGE */
 /* SOLAR PAGE */
 @import 'https://code.highcharts.com/css/highcharts.css';
-.highcharts-container {
+#boilerChartBody .highcharts-container {
     position: relative;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
@@ -247,7 +252,52 @@ p {
     width: 100%;
     height: 100%;
 }
-.highcharts-background {
+#boilerChartBody .highcharts-background {
     fill: rgba(255, 255, 255, 0.0);
+}
+
+#SolarChart .highcharts-container {
+    position: relative;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+}
+#SolarChart .highcharts-background {
+    fill: rgba(255, 255, 255, 0.0);
+}
+
+#PvChart .highcharts-container {
+    position: relative;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+}
+#PvChart .highcharts-background {
+    fill: rgba(255, 255, 255, 0.0);
+}
+
+#SolarButton {
+    position: absolute;
+    top: 180px;
+    right: 900px;
+}
+
+#SolarPump {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    left: 10px;
+    zoom: 130%;
+    background: url("../pictures/pump.png") no-repeat;
+}
+
+#SolarSwitch {
+    position: relative;
 }
 /* SOLAR PAGE */

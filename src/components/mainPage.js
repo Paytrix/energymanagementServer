@@ -15,21 +15,21 @@ export default class mainPage extends Component {
     const { values } = this.state;
     this.fetchData();
     return (
-      <div id="bodymainPage">
-          <BrowserRouter>
-            <div>
-              <span id="mainPageRaumTemp">
-                Raumtemperatur: { values.Raumtemperatur + "°C" }
-              </span>
-              <Switch>
-                <Route path="/pagePv" component={PagePv}/>
-                <Route path="/pageBoiler" component={PageBoiler}/>
-                <Route path="/pageSolar" component={PageSolar}/>
-                <Route exact path="/" component={PageBoiler}/>
-              </Switch>
-              </div>
-          </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div id="bodymainPage">
+          <div>
+            <span id="mainPageRaumTemp">
+              Raumtemperatur: { values.Raumtemperatur + "°C" }
+            </span>
+            <Switch>
+              <Route path="/pagePv" component={PagePv}/>
+              <Route path="/pageBoiler" component={PageBoiler}/>
+              <Route path="/pageSolar" component={PageSolar}/>
+              <Route exact path="/" component={PageBoiler}/>
+            </Switch>
+            </div>
+        </div>
+      </BrowserRouter>
     )
   }
 
@@ -51,11 +51,5 @@ export default class mainPage extends Component {
           });
         }
       )
-  }
-
-  componentDidMount() {
-    this.setState({ 
-      values: []
-    });
   }
 }

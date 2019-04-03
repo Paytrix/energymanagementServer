@@ -13,7 +13,6 @@ export default class boiler extends Component {
 
   render() {
     this.fetchData();
-    //this.postData("2","30000","true");
     const { values, isLoading } = this.state;
 
     const colors = [
@@ -74,22 +73,6 @@ export default class boiler extends Component {
     </div>
     )
   }
-  
-  postData(slaveID, register, postdata) {
-    (async () => {
-      const rawResponse = await fetch('http://172.16.144.101/postModbus.php', {
-        method: 'POST',
-        crossDomain: true,
-        body: JSON.stringify({
-          slaveID,
-          register,
-          postdata
-        }),
-      });
-      const content = await rawResponse;
-      //console.log(content);
-    })();
-  }
 
   fetchData() {
     fetch("http://172.16.144.101:80", {
@@ -106,16 +89,14 @@ export default class boiler extends Component {
           });
         },
         (error) => {
-          // this.setState({
-          //   error
-          // });
+          this.setState({
+            error
+          });
         }
       )
   }
 
   componentDidMount() {
-    this.postData(2,30000,"true");
-    //this.postData("2","30000","true");
     this.setState({ 
         values: [],
         isLoading: true 

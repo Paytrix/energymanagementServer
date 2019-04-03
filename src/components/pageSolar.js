@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
-import { Button } from '@progress/kendo-react-buttons';
+import { Switch } from '@progress/kendo-react-inputs';
 
 export default class pageSolar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: []
+      value0: [],
+      value1: [],
+      value2: [],
+      value3: []
     }
   }
 
   render() {
     this.fetchData();
-    const { values } = this.state;
-    let floats = values.map( x => parseFloat(x));
+    const { value0, value1, value2, value3 } = this.state;
+    console.log(value0, value1, value2, value3);
     const options = {
       chart: {
         styledMode: true,
@@ -24,35 +27,111 @@ export default class pageSolar extends Component {
       title: {
         text: 'Solar Temperaturverlauf' 
       },
-      series: [{
-        name: 'Rücklauftemperatur Solar',
-        data: floats
-      }],
+      series: [
+        {
+          name: 'Rücklauftemperatur Solar',
+          data: value0
+        },
+        {
+          name: 'Vorlauftemperatur Solar',
+          data: value1
+        }
+      ],
       yAxis: {
         title: {
           text: 'Temperatur °C'
         }
+      },
+      tooltip: {
+        xDateFormat: "%A, %b %e, %H:%M"
+      },
+      ad: {
+        tooltip: {
+          dateTimeLabelFormats: {
+            millisecond: "%A, %b %e, %H:%M",
+            hour: "%A, %b %e, %H:%M"
+          }
+        }
+      },
+      time: {
+        timezoneOffset: -120
       },
       xAxis: {
         type: 'datetime',
         title: {
           text: 'Zeit'
         },
-        categories: ['0:00','1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
+     },
+    };
+
+    const options2 = {
+      chart: {
+        styledMode: true,
+        height: 400,
+        width: 800
+      },
+      title: {
+        text: 'Pv Leistungsverlauf' 
+      },
+      series: [
+        {
+          name: 'Leistung Pv1',
+          data: value2
+        },
+        {
+          name: 'Leistung Pv2',
+          data: value3
+        }
+      ],
+      yAxis: {
+        title: {
+          text: 'Leistung W'
+        }
+      },
+      tooltip: {
+        xDateFormat: "%A, %b %e, %H:%M"
+      },
+      ad: {
+        tooltip: {
+          dateTimeLabelFormats: {
+            millisecond: "%A, %b %e, %H:%M",
+            hour: "%A, %b %e, %H:%M"
+          }
+        }
+      },
+      time: {
+        timezoneOffset: -120
+      },
+      xAxis: {
+        type: 'datetime',
+        title: {
+          text: 'Zeit'
+        },
      },
     };
 
     return (
       <div>
+        <div id="SolarChart">
+          <HighchartsReact
+            highcharts={Highcharts}
+            options={options}
+          />
+        </div>
+        <div id="PvChart">
         <HighchartsReact
-          highcharts={Highcharts}
-          options={options}
-        />
-        <Button togglable={true} onClick={() => this.postData("2","30010",true)}>Solar Pumpe</Button>
+            highcharts={Highcharts}
+            options={options2}
+          />
+        </div>
+        <div id="SolarButton">
+          <div id="SolarPump"></div>
+          <Switch id="SolarSwitch"/>
+        </div>
       </div>
     )
   }
-
+  //onClick={() => this.postData("2","30010",true)}
   fetchData() {
     fetch("http://172.16.144.101/solarChart.php", {
       crossDomain: true,
@@ -62,7 +141,10 @@ export default class pageSolar extends Component {
       .then(
         (result) => {
           this.setState({
-            values: result.results[0]
+            value0: result.results[0],
+            value1: result.results[1],
+            value2: result.results[2],
+            value3: result.results[3]
           });
         },
         (error) => {
@@ -83,6 +165,7 @@ export default class pageSolar extends Component {
         }),
       });
       const content = await rawResponse;
+      console.log("Posted: ");
       console.log(content);
     })();
   }
