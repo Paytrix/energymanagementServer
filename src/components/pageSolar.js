@@ -10,17 +10,18 @@ export default class pageSolar extends Component {
       value0: [],
       value1: [],
       value2: [],
-      value3: []
+      value3: [],
+      buttonChecked: false
     }
   }
 
   render() {
     this.fetchData();
+    this.buttonCheck();
     const { value0, value1, value2, value3 } = this.state;
-    console.log(value0, value1, value2, value3);
     const options = {
       chart: {
-        styledMode: true,
+        styledMode: false,
         height: 400,
         width: 800
       },
@@ -37,6 +38,7 @@ export default class pageSolar extends Component {
           data: value1
         }
       ],
+      colors: ['red', 'blue'],
       yAxis: {
         title: {
           text: 'Temperatur °C'
@@ -66,7 +68,7 @@ export default class pageSolar extends Component {
 
     const options2 = {
       chart: {
-        styledMode: true,
+        styledMode: false,
         height: 400,
         width: 800
       },
@@ -126,11 +128,23 @@ export default class pageSolar extends Component {
         </div>
         <div id="SolarButton">
           <div id="SolarPump"></div>
-          <Switch id="SolarSwitch"/>
+          <Switch 
+            id="SolarSwitch"
+            checked={this.state.checked}
+            onChange={(event) => { this.setState({checked: event.target.value}) }}
+          />
         </div>
       </div>
     )
   }
+
+  buttonCheck() {
+    if(this.state.checked)
+      this.postData("2","30010",true);
+    else
+      this.postData("2","30010",false);
+  }
+
   //onClick={() => this.postData("2","30010",true)}
   fetchData() {
     fetch("http://172.16.144.101/solarChart.php", {
@@ -165,8 +179,8 @@ export default class pageSolar extends Component {
         }),
       });
       const content = await rawResponse;
-      console.log("Posted: ");
-      console.log(content);
+      // console.log("Posted: ");
+      // console.log(content);
     })();
   }
 }

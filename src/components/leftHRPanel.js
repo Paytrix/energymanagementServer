@@ -15,6 +15,8 @@ export default class leftHRPanel extends Component {
         <hr className="leftPanelHR"/>
         <hr className="leftPanelHR"/>
         <hr className="leftPanelHR"/>
+        <hr className="leftPanelHR"/>
+        <hr className="leftPanelHR"/>
       </div>
     )
   }
